@@ -5,7 +5,10 @@ VisibleIsland brings a new and simple way to enable and configure the Dynamic Is
 - Enable/disable the Dynamic Island with the flip of a switch
 - Fix the position of the Dynamic Island to be under the notch as opposed to halfway under it
 - Set the position of the Dynamic Island to anywhere you want using custom X and Y offsets
-  
+
+## Screenshots
+
+<img src="/Images/sc1.png" width="300" height="650"/> <img src="/Images/sc2.png" width="300" height="650"/>
 
 **Disclaimer**
 
