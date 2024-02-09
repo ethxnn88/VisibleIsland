@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSSwitchCell</string>
+        <key>default</key>
+        <false/>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>islandEnabled</string>
+        <key>label</key>
+        <string>Enable Dynamic Island</string>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+        <key>footerText</key>
+        <string>If your device isn't supported yet, use the custom positioning instead.</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSSwitchCell</string>
+        <key>default</key>
+        <false/>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>fixEnabled</string>
+        <key>label</key>
+        <string>Fix Island Position</string>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+        <key>label</key>
+        <string>Custom Positioning</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSSwitchCell</string>
+        <key>default</key>
+        <false/>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>posEnabled</string>
+        <key>label</key>
+        <string>Use Custom Position</string>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSEditTextCell</string>
+        <key>label</key>
+        <string>X Position:</string>
+        <key>prompt</key>
+        <string>Enter X Position</string>
+        <key>bestGuess</key>
+        <string>0</string>
+        <key>placeholder</key>
+        <string>0</string>
+        <key>isNumeric</key>
+        <false/>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>xPos</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSEditTextCell</string>
+        <key>label</key>
+        <string>Y Position:</string>
+        <key>prompt</key>
+        <string>Enter Y Position</string>
+        <key>bestGuess</key>
+        <string>20</string>
+        <key>placeholder</key>
+        <string>20</string>
+        <key>isNumeric</key>
+        <false/>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>yPos</string>
+      </dict>
+      <dict>
+        <key>action</key>
+        <string>savePos</string>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>label</key>
+        <string>Save</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+      </dict>
+      <dict>
+        <key>action</key>
+        <string>sourceCode</string>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>label</key>
+        <string>Source Code</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+      </dict>
+    </array>
+    <key>title</key>
+    <string>VisibleIsland</string>
+  </dict>
+</plist>
