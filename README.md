@@ -5,10 +5,13 @@ VisibleIsland brings a new and simple way to enable and configure the Dynamic Is
 - Enable/disable the Dynamic Island with the flip of a switch
 - Fix the position of the Dynamic Island to be under the notch as opposed to halfway under it
 - Set the position of the Dynamic Island to anywhere you want using custom X and Y offsets
+- Hide the Dynamic Island when not in use
+- Change the position of notification banners to below the island for better visibility
+- Change the position of notification banners to anywhere using custom X and Y offsets
 
 ## Screenshots
 
-<img src="/Images/sc1.png" width="300" height="578"/> <img src="/Images/sc2.png" width="300" height="578"/>
+<img src="/Images/sc1.png" width="300" height="578"/> <img src="/Images/sc2.png" width="300" height="578"/> <img src="/Images/sc3.png" width="300" height="578"/>
 
 **Disclaimer**
 
@@ -48,7 +51,7 @@ Full support for iOS 16.0 - 16.6.1, currently only built for/tested on roothide 
 - Possible iPad support
 - Add options to customize the scale of the Dynamic Island
 - Fix status bar size to accomodate for the Dynamic Island
-- Add options to fix the position of notification banners (underneath the island) and/or set custom positioning
+- Add options to change the color of the Dynamic Island
 
 ## Release Notes:
 
