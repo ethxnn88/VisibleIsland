@@ -2,12 +2,19 @@
 #import <Foundation/Foundation.h>
 #import <sys/sysctl.h>
 
+
+
 CGFloat xPos =  0;
 CGFloat yPos =  20.0;
+CGFloat xNot = 0.0;
+CGFloat yNot = 40;
 
 static BOOL fixEnabled;
 static BOOL islandEnabled;
 static BOOL posEnabled;
+static BOOL hideEnabled;
+static BOOL notificationFix;
+static BOOL notEnabled;
 
 @interface FBSystemService : NSObject
 
@@ -20,6 +27,12 @@ static BOOL posEnabled;
 @end
 
 @interface _SBSystemApertureMagiciansCurtainView : UIView
+@end
+
+@interface _SBSystemApertureGainMapView : UIView
+@end
+
+@interface SBBannerWindow : UIView
 @end
 
 @interface Model : NSObject
@@ -345,6 +358,297 @@ static BOOL posEnabled;
 
 %end
 
+%hook _SBSystemApertureGainMapView
+
+-(void)didMoveToWindow {
+    if (hideEnabled) {
+        self.hidden = YES;
+    } else {
+        self.hidden = NO;
+    }
+}
+
+%end
+
+%hook SBBannerWindow
+
+- (CGRect)frame {
+    if (notificationFix) {
+        NSString *deviceModel = [Model deviceModel];
+        if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
+            %orig;
+            return CGRectMake(0, 35, 375, 812);
+        } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
+            %orig;
+            return CGRectMake(0, 35, 375, 812);
+        } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
+            %orig;
+            return CGRectMake(0, 35, 375, 812);
+        } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
+            %orig;
+            return CGRectMake(0, 35, 375, 812);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max FAKE OFFSETS??
+            %orig;
+            return CGRectMake(0, 37, 414, 896);
+        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max FAKE OFFSTES??
+            %orig;
+            return CGRectMake(0, 37, 414, 896);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR FIND OFFSETS - USING ESTIMATED
+            %orig;
+            return CGRectMake(0, 37, 414, 896);
+        } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11 FIND OFFSETS - USING ESTIMATED
+            %orig;
+            return CGRectMake(0, 37, 414, 896);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12 FIND OFFSETS - USING ESTIMATED
+            %orig;
+            return CGRectMake(0, 35, 390, 844);
+        } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro FIND OFFSETS - USING ESTIMATED
+            %orig;
+            return CGRectMake(0, 35, 390, 844);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini FIND OFFSETS - USING ESTIMATED
+            %orig;
+            return CGRectMake(0, 33, 360, 780);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max FIND OFFSETS - USING ESTIMATED
+            %orig;
+            return CGRectMake(0, 38, 428, 926);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
+            %orig;
+            return CGRectMake(0, 40, 390, 844);
+        } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
+            %orig;
+            return CGRectMake(0, 40, 390, 844);
+        } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
+            %orig;
+            return CGRectMake(0, 40, 390, 844);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini FAKE OFFSETS??
+            %orig;
+            return CGRectMake(0, 38, 360, 780);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max FAKE OFFSETS??
+            %orig;
+            return CGRectMake(0, 42, 428, 926);
+        }
+    } else if (notEnabled) {
+        NSString *deviceModel = [Model deviceModel];
+        if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
+            %orig;
+            return CGRectMake(xNot, yNot, 375, 812);
+        } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
+            %orig;
+            return CGRectMake(xNot, yNot, 375, 812);
+        } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
+            %orig;
+            return CGRectMake(xNot, yNot, 375, 812);
+        } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
+            %orig;
+            return CGRectMake(xNot, yNot, 375, 812);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max
+            %orig;
+            return CGRectMake(xNot, yNot, 414, 896);
+        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11
+            %orig;
+            return CGRectMake(xNot, yNot, 414, 896);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR
+            %orig;
+            return CGRectMake(xNot, yNot, 414, 896);
+        } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11
+            %orig;
+            return CGRectMake(xNot, yNot, 414, 896);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12
+            %orig;
+            return CGRectMake(xNot, yNot, 390, 844);
+        } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro
+            %orig;
+            return CGRectMake(xNot, yNot, 390, 844);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini
+            %orig;
+            return CGRectMake(xNot, yNot, 360, 780);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max
+            %orig;
+            return CGRectMake(xNot, yNot, 428, 926);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
+            %orig;
+            return CGRectMake(xNot, yNot, 390, 844);
+        } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
+            %orig;
+            return CGRectMake(xNot, yNot, 390, 844);
+        } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
+            %orig;
+            return CGRectMake(xNot, yNot, 390, 844);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini
+            %orig;
+            return CGRectMake(xNot, yNot, 360, 780);
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max
+            %orig;
+            return CGRectMake(xNot, yNot, 428, 926);
+        }
+    }
+
+    return %orig;
+}
+
+- (void)setFrame:(CGRect)frame {
+    if (notificationFix) {
+        NSString *deviceModel = [Model deviceModel];
+        if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
+            %orig(CGRectMake(0, 35, 375, 812));
+        } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
+            %orig(CGRectMake(0, 35, 375, 812));
+        } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
+            %orig(CGRectMake(0, 35, 375, 812));
+        } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
+            %orig(CGRectMake(0, 35, 375, 812));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max FAKE OFFSETS??
+            %orig(CGRectMake(0, 37, 414, 896));
+        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max FAKE OFFSETS??
+            %orig(CGRectMake(0, 37, 414, 896));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR FIND OFFSETS - USING ESTIMATED
+            %orig(CGRectMake(0, 37, 414, 896));
+        } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11 FIND OFFSETS - USING ESTIMATED
+            %orig(CGRectMake(0, 37, 414, 896));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12 FIND OFFSETS - USING ESTIMATED
+            %orig(CGRectMake(0, 35, 390, 844));
+        } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro FIND OFFSETS - USING ESTIMATED
+            %orig(CGRectMake(0, 35, 390, 844));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini FIND OFFSETS - USING ESTIMATED
+            %orig(CGRectMake(0, 33, 360, 780));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max FIND OFFSETS - USING ESTIMATED
+            %orig(CGRectMake(0, 38, 428, 926));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
+            %orig(CGRectMake(0, 40, 390, 844));
+        } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
+            %orig(CGRectMake(0, 40, 390, 844));
+        } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
+            %orig(CGRectMake(0, 40, 390, 844));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini FAKE OFFSETS??
+            %orig(CGRectMake(0, 38, 360, 780));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max FAKE OFFSETS??
+            %orig(CGRectMake(0, 42, 428, 926));
+        }
+    } else if (notEnabled) {
+        NSString *deviceModel = [Model deviceModel];
+        if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 375, 812));
+        } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 375, 812));
+        } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 375, 812));
+        } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 375, 812));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 414, 896));
+        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 414, 896));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 414, 896));
+        } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 414, 896));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 390, 844));
+        } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 390, 844));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 360, 780));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 428, 926));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 390, 844));
+        } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 390, 844));
+        } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
+            %orig(CGRectMake(xNot, yNot, 390, 844));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 360, 780));
+
+
+        } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max
+            %orig;
+            %orig(CGRectMake(xNot, yNot, 428, 926));
+        }
+
+    } else {
+        %orig(frame);
+    }
+}
+
+%end
+
 static void respring(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
   [[%c(FBSystemService) sharedInstance] exitAndRelaunch:YES];
 }
@@ -355,8 +659,13 @@ void preferencesChanged(){
     fixEnabled = (prefs && [prefs objectForKey:@"fixEnabled"] ? [[prefs valueForKey:@"fixEnabled"] boolValue] : NO );
     islandEnabled = (prefs && [prefs objectForKey:@"islandEnabled"] ? [[prefs valueForKey:@"islandEnabled"] boolValue] : NO );
     posEnabled = (prefs && [prefs objectForKey:@"posEnabled"] ? [[prefs valueForKey:@"posEnabled"] boolValue] : NO );
+    hideEnabled = (prefs && [prefs objectForKey:@"hideEnabled"] ? [[prefs valueForKey:@"hideEnabled"] boolValue] : NO );
+    notificationFix = (prefs && [prefs objectForKey:@"notificationFix"] ? [[prefs valueForKey:@"notificationFix"] boolValue] : NO );
+    notEnabled = (prefs && [prefs objectForKey:@"notEnabled"] ? [[prefs valueForKey:@"notEnabled"] boolValue] : NO );
     xPos = [[prefs objectForKey:@"xPos"] floatValue];
     yPos = [[prefs objectForKey:@"yPos"] floatValue];
+    xNot = [[prefs objectForKey:@"xNot"] floatValue];
+    yNot = [[prefs objectForKey:@"yNot"] floatValue];
 }
 
 %ctor{

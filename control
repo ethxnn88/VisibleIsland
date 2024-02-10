@@ -1,6 +1,6 @@
 Package: com.ethxnn88.visibleisland
 Name: VisibleIsland
-Version: 1.0-b1
+Version: 1.1-b1
 Architecture: iphoneos-arm64e
 Description: Enable and fix Dynamic Island on older devices.
 Maintainer: ethxnn88
