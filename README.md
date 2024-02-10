@@ -54,3 +54,8 @@ Full support for iOS 16.0 - 16.6.1, currently only built for/tested on roothide 
 
 1.0-b1:
 - Initial beta release
+
+1.1-b1
+- Added new option to disable the Dynamic Island when not in use
+- Added option to move notification banners to below the Dynamic Island
+- Added custom positioning for notification banners using custom X and Y offsets
