@@ -14,7 +14,7 @@ VisibleIsland brings a new and simple way to enable and configure the Dynamic Is
 
 ## Screenshots
 
-<img src="/Images/sc1.png" width="300" height="578"/> <img src="/Images/sc2.png" width="300" height="578"/> <img src="/Images/sc3.png" width="300" height="578"/>
+<img src="/Images/sc1.png" width="300" height="578"/> <img src="/Images/sc2.png" width="300" height="578"/> <img src="/Images/sc3.png" width="300" height="578"/> <img src="/Images/sc4.png" width="300" height="578"/> <img src="/Images/sc5.png" width="300" height="578"/> <img src="/Images/sc6.png" width="300" height="578"/>
 
 **Disclaimer**
 
