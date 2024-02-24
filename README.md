@@ -6,8 +6,11 @@ VisibleIsland brings a new and simple way to enable and configure the Dynamic Is
 - Fix the position of the Dynamic Island to be under the notch as opposed to halfway under it
 - Set the position of the Dynamic Island to anywhere you want using custom X and Y offsets
 - Hide the Dynamic Island when not in use
-- Change the position of notification banners to below the island for better visibility
-- Change the position of notification banners to anywhere using custom X and Y offsets
+- Fix the position of notification banners to below the island for better visibility
+- Set the position of notification banners to anywhere using custom X and Y offsets
+- Set the scale of the Dynamic Island to whatever size you like
+- Set the transparency of the Dynamic Island to exactly what you want
+- Customize the color of the Dynamic Island
 
 ## Screenshots
 
@@ -19,7 +22,7 @@ As of now, the option to fix the Dynamic Island position to directly under the n
  
 
 ## Fully supported devices:
-- iPhone X (rootless untested, should work though)
+- iPhone X
 - iPhone XS
 - iPhone 11 Pro
 - iPhone 13
@@ -43,22 +46,31 @@ Some devices are currently set up using "fake" offsets calculated by setting the
  
 **Version/jailbreak compatibility**
 
-Full support for iOS 16.0 - 16.6.1, currently only built for/tested on roothide (Serotonin) but should ideally work without a problem on rootless as well.
+Full support for iOS 16.0 - 16.6.1 rootless or roothide (bootstrap + serotonin)
  
  
 **Coming soon:**
 - More official device support
-- Possible iPad support
-- Add options to customize the scale of the Dynamic Island
-- Fix status bar size to accomodate for the Dynamic Island
-- Add options to change the color of the Dynamic Island
+- iPad support (v2.1?)
+- Fix the status bar size to accommodate for the Dynamic Island (maybe)
+
+**Known issues (fixes soon):**
+- Black rectangle behind some elements (i.e. timer or FaceID unlock glyph) when using a custom color and/or transparency
+- Red status bar (😳 rdar:45025538) on iPhone XR and 11 - a separate fix already exists but I'll implement it into the tweak soon
 
 ## Release Notes:
 
 1.0-b1:
 - Initial beta release
 
-1.1-b1
-- Added new option to disable the Dynamic Island when not in use
+1.1-b1:
+- Added a new option to disable the Dynamic Island when not in use
 - Added option to move notification banners to below the Dynamic Island
 - Added custom positioning for notification banners using custom X and Y offsets
+
+2.0:
+- Fixed a bug where the Dynamic Island would flicker and shake when "hide when not in use" is enabled
+- Added new options to customize the color of the Dynamic Island
+- Added a new option to hide the island outline
+- Added a new option to customize the scale of the Dynamic Island
+- Added a new option to set a custom transparency for the Dynamic Island
