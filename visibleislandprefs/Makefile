@@ -6,7 +6,7 @@ BUNDLE_NAME = VisibleIslandPrefs
 
 ARCHS = arm64 arm64e
 
-VisibleIslandPrefs_FILES = VISRootListController.m
+VisibleIslandPrefs_FILES = VISRootListController.m CLRRootListController.m NOTRootListController.m SCLRootListController.m
 VisibleIslandPrefs_FRAMEWORKS = UIKit
 VisibleIslandPrefs_PRIVATE_FRAMEWORKS = Preferences
 VisibleIslandPrefs_INSTALL_PATH = /Library/PreferenceBundles

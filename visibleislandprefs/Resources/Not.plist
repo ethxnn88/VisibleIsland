@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+        <key>footerText</key>
+        <string>Moves all incoming notification banners to below the Dynamic Island for better visibility.</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSSwitchCell</string>
+        <key>default</key>
+        <false/>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>notificationFix</string>
+        <key>label</key>
+        <string>Fix Notification Positioning</string>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+        <key>label</key>
+        <string>Custom Notification Positioning</string>
+        <key>footerText</key>
+        <string>Use custom positioning if you use a custom island position.</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSSwitchCell</string>
+        <key>default</key>
+        <false/>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>notEnabled</string>
+        <key>label</key>
+        <string>Use Custom Notification Position</string>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSEditTextCell</string>
+        <key>label</key>
+        <string>X Position:</string>
+        <key>prompt</key>
+        <string>Enter X Position</string>
+        <key>bestGuess</key>
+        <string>0</string>
+        <key>placeholder</key>
+        <string>0</string>
+        <key>isNumeric</key>
+        <false/>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>xNot</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSEditTextCell</string>
+        <key>label</key>
+        <string>Y Position:</string>
+        <key>prompt</key>
+        <string>Enter Y Position</string>
+        <key>bestGuess</key>
+        <string>40</string>
+        <key>placeholder</key>
+        <string>40</string>
+        <key>isNumeric</key>
+        <false/>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>yNot</string>
+      </dict>
+      <dict>
+        <key>action</key>
+        <string>savePos</string>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>label</key>
+        <string>Save</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+      </dict>
+    </array>
+    <key>title</key>
+    <string>Notifications</string>
+  </dict>
+</plist>

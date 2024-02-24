@@ -2,10 +2,15 @@
 #import <Foundation/Foundation.h>
 #import <sys/sysctl.h>
 
+CGFloat red = 0.0;
+CGFloat green = 0.0;
+CGFloat blue = 0.0;
+CGFloat alpha = 1.0;
 
+CGFloat scale = 1.0;
 
 CGFloat xPos =  0;
-CGFloat yPos =  20.0;
+CGFloat yPos =  20.5;
 CGFloat xNot = 0.0;
 CGFloat yNot = 40;
 
@@ -15,6 +20,10 @@ static BOOL posEnabled;
 static BOOL hideEnabled;
 static BOOL notificationFix;
 static BOOL notEnabled;
+static BOOL colorEnabled;
+static BOOL transEnabled;
+static BOOL scaleEnabled;
+static BOOL lineDisabled;
 
 @interface FBSystemService : NSObject
 
@@ -29,10 +38,16 @@ static BOOL notEnabled;
 @interface _SBSystemApertureMagiciansCurtainView : UIView
 @end
 
-@interface _SBSystemApertureGainMapView : UIView
+@interface SBBannerWindow : UIView
 @end
 
-@interface SBBannerWindow : UIView
+@interface _SBGainMapView : UIView
+@end
+
+@interface _SBSystemApertureContainerViewContentView : UIView
+@end
+
+@interface SBFTouchPassThroughView : UIView
 @end
 
 @interface Model : NSObject
@@ -67,278 +82,255 @@ static BOOL notEnabled;
 
 %hook SBSystemApertureWindow
 
-- (CGRect)frame {
-    if (fixEnabled) {
+- (void)layoutSubviews {
+    %orig;
+    if (scaleEnabled && fixEnabled) {
+        self.transform = CGAffineTransformMakeScale(scale, scale);
         NSString *deviceModel = [Model deviceModel];
         if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
             %orig;
-            return CGRectMake(0, 20.5, 375, 812);
+            CGFloat SyPos = 20.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
             %orig;
-            return CGRectMake(0, 20.5, 375, 812);
+            CGFloat SyPos = 20.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
             %orig;
-            return CGRectMake(0, 20.5, 375, 812);
+            CGFloat SyPos = 20.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
             %orig;
-            return CGRectMake(0, 20.5, 375, 812);
+            CGFloat SyPos = 20.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max FAKE OFFSETS??
             %orig;
-            return CGRectMake(0, 22.5, 414, 896);
+            CGFloat SyPos = 22.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max FAKE OFFSTES??
             %orig;
-            return CGRectMake(0, 22.5, 414, 896);
+            CGFloat SyPos = 22.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR FIND OFFSETS - USING ESTIMATED
             %orig;
-            return CGRectMake(0, 22.5, 414, 896);
+            CGFloat SyPos = 22.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11 FIND OFFSETS - USING ESTIMATED
             %orig;
-            return CGRectMake(0, 22.5, 414, 896);
+            CGFloat SyPos = 22.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
+
 
 
         } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12 FIND OFFSETS - USING ESTIMATED
             %orig;
-            return CGRectMake(0, 21.5, 390, 844);
+            CGFloat SyPos = 21.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro FIND OFFSETS - USING ESTIMATED
             %orig;
-            return CGRectMake(0, 21.5, 390, 844);
+            CGFloat SyPos = 21.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini FIND OFFSETS - USING ESTIMATED
             %orig;
-            return CGRectMake(0, 19.5, 360, 780);
+            CGFloat SyPos = 19.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max FIND OFFSETS - USING ESTIMATED
             %orig;
-            return CGRectMake(0, 22.3, 428, 926);
+            CGFloat SyPos = 22.3 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
             %orig;
-            return CGRectMake(0, 24, 390, 844);
+            CGFloat SyPos = 24 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
             %orig;
-            return CGRectMake(0, 24, 390, 844);
+            CGFloat SyPos = 24 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
             %orig;
-            return CGRectMake(0, 24, 390, 844);
+            CGFloat SyPos = 24 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini FAKE OFFSETS??
             %orig;
-            return CGRectMake(0, 22.5, 360, 780);
+            CGFloat SyPos = 22.5 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max FAKE OFFSETS??
             %orig;
-            return CGRectMake(0, 26, 428, 926);
+            CGFloat SyPos = 26 / scale;
+            CGRect frame = self.frame;
+            frame.origin.y = SyPos;
+            self.frame = frame;
         }
-    } else if (posEnabled) {
+    } else if (scaleEnabled && posEnabled) {
+        self.transform = CGAffineTransformMakeScale(scale, scale);
+        %orig;
+        CGFloat SyPos = yPos / scale;
+        CGRect frame = self.frame;
+        frame.origin.y = SyPos;
+        if (xPos > 0) {
+            CGFloat SxPos = xPos / scale;
+            frame.origin.x = SxPos;
+        }
+        self.frame = frame;
+    } else if (fixEnabled && !scaleEnabled) {
         NSString *deviceModel = [Model deviceModel];
         if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
             %orig;
-            return CGRectMake(xPos, yPos, 375, 812);
+            CGRect frame = self.frame;
+            frame.origin.y = 20.5;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
             %orig;
-            return CGRectMake(xPos, yPos, 375, 812);
+            CGRect frame = self.frame;
+            frame.origin.y = 20.5;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
             %orig;
-            return CGRectMake(xPos, yPos, 375, 812);
+            CGRect frame = self.frame;
+            frame.origin.y = 20.5;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
             %orig;
-            return CGRectMake(xPos, yPos, 375, 812);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max
-            %orig;
-            return CGRectMake(xPos, yPos, 414, 896);
-        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11
-            %orig;
-            return CGRectMake(xPos, yPos, 414, 896);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR
-            %orig;
-            return CGRectMake(xPos, yPos, 414, 896);
-        } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11
-            %orig;
-            return CGRectMake(xPos, yPos, 414, 896);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12
-            %orig;
-            return CGRectMake(xPos, yPos, 390, 844);
-        } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro
-            %orig;
-            return CGRectMake(xPos, yPos, 390, 844);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini
-            %orig;
-            return CGRectMake(xPos, yPos, 360, 780);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max
-            %orig;
-            return CGRectMake(xPos, yPos, 428, 926);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
-            %orig;
-            return CGRectMake(xPos, yPos, 390, 844);
-        } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
-            %orig;
-            return CGRectMake(xPos, yPos, 390, 844);
-        } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
-            %orig;
-            return CGRectMake(xPos, yPos, 390, 844);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini
-            %orig;
-            return CGRectMake(xPos, yPos, 360, 780);
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max
-            %orig;
-            return CGRectMake(xPos, yPos, 428, 926);
-        }
-    }
-
-    return %orig;
-}
-
-- (void)setFrame:(CGRect)frame {
-    if (fixEnabled) {
-        NSString *deviceModel = [Model deviceModel];
-        if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
-            %orig(CGRectMake(0, 20.5, 375, 812));
-        } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
-            %orig(CGRectMake(0, 20.5, 375, 812));
-        } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
-            %orig(CGRectMake(0, 20.5, 375, 812));
-        } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
-            %orig(CGRectMake(0, 20.5, 375, 812));
+            CGRect frame = self.frame;
+            frame.origin.y = 20.5;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max FAKE OFFSETS??
-            %orig(CGRectMake(0, 22.5, 414, 896));
-        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max FAKE OFFSETS??
-            %orig(CGRectMake(0, 22.5, 414, 896));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 22.5;
+            self.frame = frame;
+        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max FAKE OFFSTES??
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 22.5;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR FIND OFFSETS - USING ESTIMATED
-            %orig(CGRectMake(0, 22.5, 414, 896));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 22.5;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11 FIND OFFSETS - USING ESTIMATED
-            %orig(CGRectMake(0, 22.5, 414, 896));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 22.5;
+            self.frame = frame;
+
 
 
         } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12 FIND OFFSETS - USING ESTIMATED
-            %orig(CGRectMake(0, 21.5, 390, 844));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 21.5;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro FIND OFFSETS - USING ESTIMATED
-            %orig(CGRectMake(0, 21.5, 390, 844));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 21.5;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini FIND OFFSETS - USING ESTIMATED
-            %orig(CGRectMake(0, 19.5, 360, 780));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 19.5;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max FIND OFFSETS - USING ESTIMATED
-            %orig(CGRectMake(0, 23.3, 428, 926));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 22.3;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
-            %orig(CGRectMake(0, 24, 390, 844));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 24;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
-            %orig(CGRectMake(0, 24, 390, 844));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 24;
+            self.frame = frame;
         } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
-            %orig(CGRectMake(0, 24, 390, 844));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 24;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini FAKE OFFSETS??
-            %orig(CGRectMake(0, 22.5, 360, 780));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 22.5;
+            self.frame = frame;
 
 
         } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max FAKE OFFSETS??
-            %orig(CGRectMake(0, 26, 428, 926));
+            %orig;
+            CGRect frame = self.frame;
+            frame.origin.y = 26;
+            self.frame = frame;
         }
-    } else if (posEnabled) {
-        NSString *deviceModel = [Model deviceModel];
-        if ([deviceModel isEqualToString:@"iPhone10,3"]) { //X
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 375, 812));
-        } else if ([deviceModel isEqualToString:@"iPhone10,6"]) { //X
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 375, 812));
-        } else if ([deviceModel isEqualToString:@"iPhone11,2"]) { //XS
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 375, 812));
-        } else if ([deviceModel isEqualToString:@"iPhone12,3"]) { //11 Pro
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 375, 812));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone11,6"]) { //XS Max
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 414, 896));
-        } else if ([deviceModel isEqualToString:@"iPhone12,5"]) { //11 Pro Max
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 414, 896));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone11,8"]) { //XR
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 414, 896));
-        } else if ([deviceModel isEqualToString:@"iPhone12,1"]) { //11
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 414, 896));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone13,2"]) { //12
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 390, 844));
-        } else if ([deviceModel isEqualToString:@"iPhone13,3"]) { //12 Pro
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 390, 844));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone13,1"]) { //12 Mini
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 360, 780));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone13,4"]) { //12 Pro Max
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 428, 926));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone14,5"]) { //13
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 390, 844));
-        } else if ([deviceModel isEqualToString:@"iPhone14,2"]) { //13 Pro
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 390, 844));
-        } else if ([deviceModel isEqualToString:@"iPhone14,7"]) { //14
-            %orig(CGRectMake(xPos, yPos, 390, 844));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone14,4"]) { //13 Mini
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 360, 780));
-
-
-        } else if ([deviceModel isEqualToString:@"iPhone14,3"]) { //13 Pro Max
-            %orig;
-            %orig(CGRectMake(xPos, yPos, 428, 926));
-        }
-
-    } else {
-        %orig(frame);
+    } else if (posEnabled && !scaleEnabled) {
+        %orig;
+        CGRect frame = self.frame;
+        frame.origin.y = yPos;
+        frame.origin.x = xPos;
+        self.frame = frame;
+    } else if (scaleEnabled && !posEnabled | scaleEnabled && !fixEnabled) {
+        self.transform = CGAffineTransformMakeScale(scale, scale);
     }
 }
 
@@ -358,13 +350,55 @@ static BOOL notEnabled;
 
 %end
 
-%hook _SBSystemApertureGainMapView
+%hook _SBGainMapView
 
--(void)didMoveToWindow {
+- (void)didMoveToWindow {
     if (hideEnabled) {
-        self.hidden = YES;
-    } else {
-        self.hidden = NO;
+        if (self.superview) {
+            [self removeFromSuperview];
+        }
+    }
+}
+
+%end
+
+
+
+%hook _SBSystemApertureContainerViewContentView
+
+- (void)layoutSubviews {
+    UIColor *backgroundColor = [self backgroundColor];
+    if (colorEnabled) {
+        if (!backgroundColor) {
+        
+            UIColor *customColor = [[UIColor alloc] initWithRed:red green:green blue:blue alpha:alpha];
+            [self setBackgroundColor:customColor];
+        }
+    }
+    %orig;
+}
+
+%end
+
+%hook SBFTouchPassThroughView
+
+- (void)layoutSubviews {
+    %orig;
+    
+    if (transEnabled) {
+        if (self.subviews.count == 4) {
+            UIView *targetSubview = self.subviews[2];
+            if (targetSubview.alpha == 1.0 && targetSubview.userInteractionEnabled == 0) {
+                targetSubview.alpha = alpha;
+            }
+        }
+    } if (lineDisabled) {
+        if (self.subviews.count == 4) {
+            UIView *lineView = self.subviews[1];
+            if (lineView.alpha == 1.0 && lineView.userInteractionEnabled == 0) {
+                lineView.hidden = YES;
+            }
+        }
     }
 }
 
@@ -662,10 +696,19 @@ void preferencesChanged(){
     hideEnabled = (prefs && [prefs objectForKey:@"hideEnabled"] ? [[prefs valueForKey:@"hideEnabled"] boolValue] : NO );
     notificationFix = (prefs && [prefs objectForKey:@"notificationFix"] ? [[prefs valueForKey:@"notificationFix"] boolValue] : NO );
     notEnabled = (prefs && [prefs objectForKey:@"notEnabled"] ? [[prefs valueForKey:@"notEnabled"] boolValue] : NO );
+    colorEnabled = (prefs && [prefs objectForKey:@"colorEnabled"] ? [[prefs valueForKey:@"colorEnabled"] boolValue] : NO );
+    transEnabled = (prefs && [prefs objectForKey:@"transEnabled"] ? [[prefs valueForKey:@"transEnabled"] boolValue] : NO );
+    scaleEnabled = (prefs && [prefs objectForKey:@"scaleEnabled"] ? [[prefs valueForKey:@"scaleEnabled"] boolValue] : NO );
+    lineDisabled = (prefs && [prefs objectForKey:@"lineDisabled"] ? [[prefs valueForKey:@"lineDisabled"] boolValue] : NO );
     xPos = [[prefs objectForKey:@"xPos"] floatValue];
     yPos = [[prefs objectForKey:@"yPos"] floatValue];
     xNot = [[prefs objectForKey:@"xNot"] floatValue];
     yNot = [[prefs objectForKey:@"yNot"] floatValue];
+    red = [[prefs objectForKey:@"red"] floatValue];
+    green = [[prefs objectForKey:@"green"] floatValue];
+    blue = [[prefs objectForKey:@"blue"] floatValue];
+    alpha = [[prefs objectForKey:@"alpha"] floatValue];
+    scale = [[prefs objectForKey:@"scale"] floatValue];
 }
 
 %ctor{

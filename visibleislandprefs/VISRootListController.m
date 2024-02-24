@@ -150,13 +150,20 @@
     }
 }
 
+- (void)twitter {
+    NSURL *url = [NSURL URLWithString:@"https://twitter.com/ethxnn88"];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    }
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == [tableView numberOfSections] - 1) {
         UILabel *footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 50)];
         footerLabel.textAlignment = NSTextAlignmentCenter;
         footerLabel.textColor = [UIColor grayColor];
         footerLabel.font = [UIFont systemFontOfSize:14.0];
-        footerLabel.text = @"VisibleIsland v1.1-b1 | Copyright © ethxnn88";
+        footerLabel.text = @"VisibleIsland v2.0 | Copyright © ethxnn88";
         return footerLabel;
     } else {
         return nil;
@@ -166,9 +173,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == [tableView numberOfSections] - 1) {
         return 50;
-    } if (section == [tableView numberOfSections] - 6) {
-        return 45;
-    } if (section == [tableView numberOfSections] - 4) {
+    } if (section == [tableView numberOfSections] - 5) {
         return 45;
     } else {
         return 0;

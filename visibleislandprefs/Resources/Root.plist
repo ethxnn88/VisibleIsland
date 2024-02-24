@@ -24,20 +24,6 @@
       </dict>
       <dict>
         <key>cell</key>
-        <string>PSSwitchCell</string>
-        <key>default</key>
-        <false/>
-        <key>defaults</key>
-        <string>com.ethxnn88.visibleislandprefs</string>
-        <key>key</key>
-        <string>hideEnabled</string>
-        <key>label</key>
-        <string>Hide When Not in Use</string>
-        <key>PostNotification</key>
-        <string>com.ethxnn88.visibleislandprefs-updated</string>
-      </dict>
-      <dict>
-        <key>cell</key>
         <string>PSGroupCell</string>
         <key>footerText</key>
         <string>If your device isn't supported yet, use the custom positioning instead.</string>
@@ -129,8 +115,8 @@
       <dict>
         <key>cell</key>
         <string>PSGroupCell</string>
-        <key>footerText</key>
-        <string>Moves all incoming notification banners to below the Dynamic Island for better visibility.</string>
+        <key>label</key>
+        <string>Misc</string>
       </dict>
       <dict>
         <key>cell</key>
@@ -140,17 +126,11 @@
         <key>defaults</key>
         <string>com.ethxnn88.visibleislandprefs</string>
         <key>key</key>
-        <string>notificationFix</string>
+        <string>hideEnabled</string>
         <key>label</key>
-        <string>Fix Notification Positioning</string>
+        <string>Hide When Not in Use</string>
         <key>PostNotification</key>
         <string>com.ethxnn88.visibleislandprefs-updated</string>
-      </dict>
-      <dict>
-        <key>cell</key>
-        <string>PSGroupCell</string>
-        <key>label</key>
-        <string>Custom Notification Positioning</string>
       </dict>
       <dict>
         <key>cell</key>
@@ -160,61 +140,41 @@
         <key>defaults</key>
         <string>com.ethxnn88.visibleislandprefs</string>
         <key>key</key>
-        <string>notEnabled</string>
+        <string>lineDisabled</string>
         <key>label</key>
-        <string>Use Custom Notification Position</string>
+        <string>Disable Island Outline</string>
         <key>PostNotification</key>
         <string>com.ethxnn88.visibleislandprefs-updated</string>
       </dict>
       <dict>
-        <key>cell</key>
-        <string>PSEditTextCell</string>
-        <key>label</key>
-        <string>X Position:</string>
-        <key>prompt</key>
-        <string>Enter X Position</string>
-        <key>bestGuess</key>
-        <string>0</string>
-        <key>placeholder</key>
-        <string>0</string>
-        <key>isNumeric</key>
-        <false/>
-        <key>PostNotification</key>
-        <string>com.ethxnn88.visibleislandprefs-updated</string>
-        <key>defaults</key>
-        <string>com.ethxnn88.visibleislandprefs</string>
-        <key>key</key>
-        <string>xNot</string>
+	      <key>cell</key>
+	      <string>PSLinkCell</string>
+	      <key>detail</key>
+	      <string>NOTRootListController</string>
+	      <key>isController</key>
+	      <true/>
+	      <key>label</key>
+	      <string>Notifications</string>
       </dict>
       <dict>
-        <key>cell</key>
-        <string>PSEditTextCell</string>
-        <key>label</key>
-        <string>Y Position:</string>
-        <key>prompt</key>
-        <string>Enter Y Position</string>
-        <key>bestGuess</key>
-        <string>40</string>
-        <key>placeholder</key>
-        <string>40</string>
-        <key>isNumeric</key>
-        <false/>
-        <key>PostNotification</key>
-        <string>com.ethxnn88.visibleislandprefs-updated</string>
-        <key>defaults</key>
-        <string>com.ethxnn88.visibleislandprefs</string>
-        <key>key</key>
-        <string>yNot</string>
+	      <key>cell</key>
+	      <string>PSLinkCell</string>
+	      <key>detail</key>
+	      <string>CLRRootListController</string>
+	      <key>isController</key>
+	      <true/>
+	      <key>label</key>
+	      <string>Color and Opacity</string>
       </dict>
       <dict>
-        <key>action</key>
-        <string>savePos</string>
-        <key>cell</key>
-        <string>PSButtonCell</string>
-        <key>label</key>
-        <string>Save</string>
-        <key>defaults</key>
-        <string>com.ethxnn88.visibleislandprefs</string>
+	      <key>cell</key>
+	      <string>PSLinkCell</string>
+	      <key>detail</key>
+	      <string>SCLRootListController</string>
+	      <key>isController</key>
+	      <true/>
+	      <key>label</key>
+	      <string>Scale</string>
       </dict>
       <dict>
         <key>cell</key>
@@ -227,6 +187,16 @@
         <string>PSButtonCell</string>
         <key>label</key>
         <string>Source Code</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+      </dict>
+      <dict>
+        <key>action</key>
+        <string>twitter</string>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>label</key>
+        <string>Twitter</string>
         <key>defaults</key>
         <string>com.ethxnn88.visibleislandprefs</string>
       </dict>

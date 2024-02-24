@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>cell</key>
+        <string>PSGroupCell</string>
+        <key>label</key>
+        <string>Custom Island Scale</string>
+        <key>footerText</key>
+        <string>If you choose to use a custom scale, setting a custom position is recommended for best results.</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSSwitchCell</string>
+        <key>default</key>
+        <false/>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>scaleEnabled</string>
+        <key>label</key>
+        <string>Use Custom Scale</string>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+      </dict>
+      <dict>
+        <key>cell</key>
+        <string>PSEditTextCell</string>
+        <key>label</key>
+        <string>Scale:</string>
+        <key>prompt</key>
+        <string>Enter Scale</string>
+        <key>bestGuess</key>
+        <string>1.0</string>
+        <key>placeholder</key>
+        <string>1.0</string>
+        <key>isNumeric</key>
+        <false/>
+        <key>PostNotification</key>
+        <string>com.ethxnn88.visibleislandprefs-updated</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+        <key>key</key>
+        <string>scale</string>
+      </dict>
+      <dict>
+        <key>action</key>
+        <string>savePos</string>
+        <key>cell</key>
+        <string>PSButtonCell</string>
+        <key>label</key>
+        <string>Save</string>
+        <key>defaults</key>
+        <string>com.ethxnn88.visibleislandprefs</string>
+      </dict>
+    </array>
+    <key>title</key>
+    <string>Scale</string>
+  </dict>
+</plist>
